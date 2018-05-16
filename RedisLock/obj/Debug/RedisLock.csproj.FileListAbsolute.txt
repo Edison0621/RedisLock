@@ -1,0 +1,11 @@
+D:\NextPlan\RedisLock\RedisLock\bin\Debug\RedisLock.dll
+D:\NextPlan\RedisLock\RedisLock\bin\Debug\RedisLock.pdb
+D:\NextPlan\RedisLock\RedisLock\bin\Debug\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll
+D:\NextPlan\RedisLock\RedisLock\bin\Debug\Newtonsoft.Json.dll
+D:\NextPlan\RedisLock\RedisLock\bin\Debug\StackExchange.Redis.dll
+D:\NextPlan\RedisLock\RedisLock\bin\Debug\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.xml
+D:\NextPlan\RedisLock\RedisLock\bin\Debug\Newtonsoft.Json.xml
+D:\NextPlan\RedisLock\RedisLock\bin\Debug\StackExchange.Redis.xml
+D:\NextPlan\RedisLock\RedisLock\obj\Debug\RedisLock.csprojResolveAssemblyReference.cache
+D:\NextPlan\RedisLock\RedisLock\obj\Debug\RedisLock.dll
+D:\NextPlan\RedisLock\RedisLock\obj\Debug\RedisLock.pdb
