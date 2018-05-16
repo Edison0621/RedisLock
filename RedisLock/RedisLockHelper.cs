@@ -100,6 +100,37 @@ namespace RedisLock
             }
         }
 
+        /// <summary>
+        ///     锁操作,无自定义超时操作,直到功能运行结束
+        /// </summary>
+        /// <param name="redisKey">The redis key.</param>
+        /// <param name="action">The action.</param>
+        /// <returns>Task&lt;Tuple&lt;System.Boolean, LockObject&gt;&gt;.</returns>
+        public async Task<Tuple<bool, LockObject>> LockUntilCompleteAsync(RedisKey redisKey, Task<Action> action)
+        {
+            LockObject lockObject = null;
+
+            try
+            {
+                lockObject = new LockObject(redisKey, DateTime.Now.ToString(CultureInfo.InvariantCulture), DateTime.UtcNow);
+
+                if (await this.SetLockAsync(redisKey, lockObject, TimeSpan.FromHours(5)))
+                {
+                    await action;
+
+                    await this.ReleaseLockAsync(redisKey);
+                }
+            }
+            catch (Exception)
+            {
+                await this.ReleaseLockAsync(redisKey);
+
+                return Tuple.Create(false, lockObject);
+            }
+
+            return Tuple.Create(true, lockObject);
+        }
+
         public async Task<bool> RetryAsync(Func<Task<bool>> action)
         {
             return await this.retryPolicy.ExecuteAction(action);
